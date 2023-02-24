@@ -81,7 +81,31 @@ public class MemberDao {
 	}
 
 	public int updateMember(Connection connection, Member member) {
-		return 0;
+		
+		int result = 0;
+	      PreparedStatement pstmt = null;
+	      String query ="UPDATE MEMBER SET M_PWD=?,M_NAME=?, M_MAIL=?, M_PHONE=?, M_ADDR=? WHERE M_NO=?";
+	            
+	      try {
+	         pstmt = connection.prepareStatement(query);
+	            
+	         pstmt.setString(1, member.getPassword());
+	         pstmt.setString(2, member.getName());
+	         pstmt.setString(3, member.getMail());
+	         pstmt.setString(4, member.getPhone());
+	         pstmt.setString(5, member.getAddr());
+	         pstmt.setInt(6, member.getNo());
+	         
+	         result = pstmt.executeUpdate();
+	         
+	      } catch (SQLException e) {
+	         e.printStackTrace();
+	      } finally {
+	         close(pstmt);
+	      }      
+	      
+	      return result;
+		
 	}
 
 
