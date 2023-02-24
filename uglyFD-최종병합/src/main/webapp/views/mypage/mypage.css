@@ -1,0 +1,77 @@
+.c_shop{
+    padding: 50px;
+    text-align: center;
+    font-size: 30pt;
+    font-weight: bolder;
+    
+}
+
+
+
+.row{
+/*     font-size: 30pt; */
+    text-align: center;
+/*     border: 16px; */
+
+/* 	background-color: rgba(249, 219, 99, 0.54); */
+    width: 80%;
+    height: 150px;
+    /* margin-right: 50px;
+    margin-left: 140px; */
+    font-weight: bolder;
+    margin: 0 auto;
+    /* position: sticky; */
+    
+}
+
+.first {
+/*     background-color: rgba(249, 219, 99, 0.54); */
+    float: left;
+    width:20%;
+    height: 60px;
+    font-size: 15pt;
+    font-weight: bolder;
+    margin-left: 10%;
+    margin-right: 70px;
+    line-height: 60px;
+    border: 3px solid rgba(249, 219, 99, 0.54);
+    border-radius: 15px;
+}
+
+.second{
+/*     background-color: rgba(249, 219, 99, 0.54); */
+    float: left;
+    width:20%;
+    height: 60px;
+    font-size: 15pt;
+    font-weight: bolder;
+    margin-left: 5%;
+    line-height: 60px;
+    
+}
+
+.third1{
+/*     background-color: rgba(249, 219, 99, 0.54); */
+    float: right;
+    width:20%;
+    height: 60px;
+    font-size: 15pt;
+    font-weight: bolder;
+    margin-right: 10%;
+    line-height: 60px;
+    
+}
+
+.c-fo{
+    padding: 20px;
+    text-align: center;
+
+    
+}
+
+.c-fo1{
+    padding-bottom: 20px;
+    text-align: center;
+	 margin-bottom:20px;
+    
+}
