@@ -48,7 +48,7 @@ public class MemberService {
 		return this.findMemberById(userId) != null;
 	}
 
-	private Member findMemberById(String userId) {
+	public Member findMemberById(String userId) {
 		Connection connection = getConnection();
 		
 		Member member = new MemberDao().findMemberById(connection, userId);
