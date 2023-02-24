@@ -54,14 +54,13 @@ public class LoginServlet extends HttpServlet {
     	
     	if(loginMember != null) {
     		session = request.getSession();
-    		
     		session.setAttribute("loginMember", loginMember);
-    		
-    		response.sendRedirect(request.getContextPath() + "/");
+    		request.setAttribute("msg", "UGLYFD에 오신걸 환영합니다.");
+    		request.setAttribute("location", "/main/home.do");
+    		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     	} else {
     		request.setAttribute("msg", "아이디나 비밀번호가 일치하지 않습니다.");
     		request.setAttribute("location", "/login");
-    		
     		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
     	}
 

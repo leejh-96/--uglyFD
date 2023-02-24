@@ -47,13 +47,11 @@ public class EnrollServlet extends HttpServlet {
 		
 		if(result > 0) {
 			request.setAttribute("msg", "UGLYFD에 오신걸 환영합니다.");
-			request.setAttribute("location", "/");
-			
+			request.setAttribute("location", "/main/home.do");
 		} else {
 			request.setAttribute("msg", "회원가입에 실패하셨습니다.");
 			request.setAttribute("location", "/enroll");
 		}
-		
 		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	}
 
