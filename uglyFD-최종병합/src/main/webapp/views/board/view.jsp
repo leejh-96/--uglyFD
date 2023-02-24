@@ -11,88 +11,84 @@
 <jsp:include page="/views/common/header.jsp" />
 
 <style>
-    section>div#board-write-container{width:600px; margin:0 auto; text-align:center;}
-    section>div#board-write-container h2{margin:10px 0;}
-    table#tbl-board{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
-    table#tbl-board th {width: 125px; border:1px solid; padding: 5px 0; text-align:center;} 
-    table#tbl-board td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
-    div#comment-container button#btn-insert{width:60px;height:50px; color:white; background-color:#3300FF;position:relative;top:-20px;}
+    .main-section{width:800px; margin:0 auto; text-align:center;}
+/*      section>div#board-write-container h2{margin:10px 0;}  */
+/*       table.table table-bordered{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }   */
+/*       table.table table-bordered th {width: 125px; border:1px solid #1d2124; padding: 5px 0; text-align:center;}    */
+/*       table.table table-bordered td {border:1px solid #1d2124; padding: 5px 0 5px 10px; text-align:left;}   */
+     div#comment-container button#btn-insert{width:60px;height:50px; color:white; background-color:#3300FF;position:relative;top:-20px;} 
     
     /*댓글테이블*/
-    table#tbl-comment{width:580px; margin:0 auto; border-collapse:collapse; clear:both; } 
-    table#tbl-comment tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;}
-    table#tbl-comment tr td:first-of-type{padding: 5px 5px 5px 50px;}
-    table#tbl-comment tr td:last-of-type {text-align:right; width: 100px;}
-    table#tbl-comment button.btn-delete{display:none;}
-    table#tbl-comment tr:hover {background:lightgray;}
-    table#tbl-comment tr:hover button.btn-delete{display:inline;}
-    table#tbl-comment sub.comment-writer {color:navy; font-size:14px}
-    table#tbl-comment sub.comment-date {color:tomato; font-size:10px}
+    table#tbl1-comment123{width:580px; margin:0 auto; border-collapse:collapse; clear:both; } 
+    table#tbl1-comment123 tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;} 
+    table#tbl1-comment123 tr td:first-of-type{padding: 5px 5px 5px 50px;}
+    table#tbl1-comment123 tr td:last-of-type {text-align:right; width: 100px;}
+    table#tbl1-comment123 button.btn-delete{display:none;}
+    table#tbl1-comment123 tr:hover {background:lightgray;}
+    table#tbl1-comment123 tr:hover button.btn-delete{display:inline;}
+    table#tbl1-comment123 sub.comment-writer {color:navy; font-size:14px}
+    table#tbl1-comment123 sub.comment-date {color:tomato; font-size:10px}
+
+ 	.main-section .table th { width: 120px; border:1px solid #1d2124; background:lightgray;} 
+	.main-section .table td { width: 280px; text-align: left; border:1px solid #1d2124;}
+	.main-section .table tr:nth-child(4) td { height: 200px; }
 </style>
-<section id="content">   
-   <div id="board-write-container">
-   <br><br>
-      <h2>1대1 문의사항</h2>
-      <table id="tbl-board">
-         <tr>
-            <th>글번호</th>
-            <td>${ board.no }</td>
-         </tr>
-         <tr>
-            <th>제 목</th>
-            <td>${ board.title }</td>
-         </tr>
-         <tr>
-            <th>작성자</th>
-            <td>${ board.writerId }</td>
-         </tr>
-         <tr>
-            <th>조회수</th>
-            <td>${ board.readCount }</td>
-         </tr>
-         <tr>
-            <th>첨부파일</th>
-            <td>
-               <c:if test="${ empty board.originalFileName }">
-                  <span> - </span>
-               </c:if>
-               <c:if test="${ not empty board.originalFileName }">
-                  <%-- 
-                  <a href="javascript:" id="fileDown">
-                     <span> ${ board.originalFileName } </span>
-                  </a>
-                  --%>
-                  <a href="${ path }/resources/upload/board/${board.renamedFileName}">
-                     <span> ${ board.originalFileName } </span>
-                  </a>
-               </c:if>
-            </td>
-         </tr>
-         <tr>
-            <th>내 용</th>
-            <td>${ board.content }</td>
-         </tr>
-         <%--글작성자/관리자인경우 수정삭제 가능 --%>
-         <tr>
-            <th colspan="2">
+</head>
+<body>
+
+	<section class="main-section">
+			<br>
+		<h1>1대1<small>문의사항</small></h1>
+		<br>
+		<table class="table table-bordered" >
+			<tr>
+				<th>번호</th>
+				<td>${ board.no }</td>
+				<th>작성자</th>
+				<td>${ board.writerId }</td>
+			</tr>
+			<tr>
+				<th>날짜</th>
+				<td>${ board.createDate }</td>
+				<th>조회수</th>
+				<td>${ board.readCount }</td>
+			</tr>	
+			<tr>
+				<th>제목</th>
+				<td colspan="3">${ board.title }</td>
+			</tr>		
+			<tr>
+				<th>내용</th>
+				<td colspan="3">${ board.content }</td>
+			</tr>		
+			<tr>
+            <th colspan="4" style="padding-left:74%">
                <c:if test="${ not empty loginMember && loginMember.id == board.writerId }">
                   <button type="button" onclick="location.href='${ path }/board/update?no=${ board.no }'">수정</button>
                   <button type="button" id="btnDelete">삭제</button>
                </c:if>
-               <button type="button" onclick="location.href='${ path }//board/inquire'">목록으로</button>
+               <button  type="button" onclick="location.href='${ path }/board/inquire'">목록으로</button>
             </th>
          </tr>
       </table>
+      <br>
+      <hr style="border: 1px groove; width: 131%; margin-left:-20%">
+      <br>
       <div id="comment-container">
+      <h3 style="margin-right:46%">댓글 달기</h3>
           <div class="comment-editor">
              <form action="${ path }/board/reply" method="POST">
                 <input type="hidden" name="boardNo" value="${ board.no }">
-               <textarea name="content" id="replyContent" cols="55" rows="3"></textarea>
+               <textarea name="content" id="replyContent" cols="55" rows="2" style="resize:none;" required></textarea>
                <button type="submit" id="btn-insert">등록</button>                
              </form>
           </div>
        </div>
-       <table id="tbl-comment">
+       <br>
+       <hr style="border: 1px groove; width: 131%; margin-left:-20%">
+       <table id="tbl1-comment123">
+       <br>
+       <h3>댓글</h3>
           <c:forEach var="reply" items="${ board.replies }">
                 <tr class="level1">
                 <td>
@@ -103,22 +99,31 @@
                 </td>
                 <td>
                    <c:if test="${ not empty loginMember && loginMember.id == reply.writerId }">
-                      <button>삭제</button>
+                      <button  type="button" id="replyDelete" replyNo="${ reply.no }">삭제</button>
                    </c:if>
                 </td>
              </tr>
           </c:forEach>
           <br>
-       </table>
-    </div>
-</section>
+		</table>
+<br><br>
+	</section>	
+
+</body>
+
 <script>
    $(document).ready(() => {
       $('#btnDelete').on('click', () => {
-         if(confirm('삭제 하시겠습니까?')) {
+         if(confirm('에에에~? 진짜 삭제할꺼야? 정말 정말?? 진짜루 ?????? 정말????????')) {
             location.replace('${ path }/board/delete?no=${ board.no }');
          }
       });
+      $('#replyDelete').on('click', (event) => {
+    	  var replyNo = $(event.target).attr('replyNo');
+          if(confirm('에에에~? 진짜 삭제할꺼야?')) {
+        	  location.href='${ path}/reply/delete?no=' + replyNo;
+          }
+       });
       
       $('#fileDown').on('click', () => {
          let oname = encodeURIComponent('${ board.originalFileName }');
@@ -127,13 +132,23 @@
          location.assign('${ path }/board/fileDown?oname=' + oname + '&rname=' + rname);
       });
       
+      
+      var objreply = document.getElementById("replyContent");
+      
+      
       $('#replyContent').on('focus', () => {
          if(${ empty loginMember}) {
             alert('로그인 후 이용해 주세요.')   ;
-            
-            $('#userId').focus();
+            $('#loginbutton').focus();
          }
       });
+      
+      $('#btn-insert').on('focus', () => {
+    	  if(${ not empty loginMemer}) {
+    		  alert('로그인 후 이용해 주세요.') ;
+    		  $('#loginbutton').focus();
+    	  }
+      })
    });
 </script>
 <jsp:include page="/views/common/footer.jsp" /> 

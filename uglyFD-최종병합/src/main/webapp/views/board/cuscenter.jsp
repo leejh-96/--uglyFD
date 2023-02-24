@@ -41,7 +41,7 @@
           <p class="custom_content1">이메일 상담</p>
           <p class="custom_content">gksthe@naver.com</p>
         </div>
-        <a href="#" class="custom_a">
+        <a href="https://open.kakao.com/o/sqUShN5e" class="custom_a" style="text-decoration:none">
             <div class="custom_kakao">
                 <span class="material-icons md-48" id="icon1"
                 >chat_bubble_outline</span

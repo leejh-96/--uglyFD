@@ -54,10 +54,10 @@
                   </td>
                 </tr>
                                 <tr>
-                  <th>첨부파일<span class="t_red">*</span></th>
-                  <td>
-                    <input type="file" name="upfile" />
-                  </td>
+<!--                   <th>첨부파일<span class="t_red">*</span></th> -->
+<!--                   <td> -->
+<!--                     <input type="file" name="upfile" /> -->
+<!--                   </td> -->
                 </tr>
                 <tr>
                   <th>내용<span class="t_red">*</span></th>
