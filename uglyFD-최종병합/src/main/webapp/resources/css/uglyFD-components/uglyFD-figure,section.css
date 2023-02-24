@@ -1,0 +1,21 @@
+/* 메인 section-title (인기상품,마감임박 title)*/
+.sec-title{
+    text-align: center;
+    color: rgb(237, 157, 26);
+    font-weight: bolder;
+}
+/* 메인 section-card 인기상품,마감임박 card */
+#card-divwrap{
+    padding: 0px 300px;
+    text-align: center;
+}
+.card-margin{
+    margin-bottom: 30px;
+}
+#card-divwrap a{
+    text-decoration: none;
+}
+/* carousel */
+.container *{
+    height: 600px;
+}

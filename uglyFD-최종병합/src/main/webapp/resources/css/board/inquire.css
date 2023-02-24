@@ -1,0 +1,47 @@
+#wrap {
+  width: 1000px;
+  margin: auto;
+}
+#div1 {
+  width: 100%;
+  border-collapse: collapse;
+  line-height: 24px;
+}
+#div1 td,
+th {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration: underline;
+  color: blue;
+}
+#nav {
+  padding-left: 42%;
+}
+
+.nav1 {
+  padding-bottom: 5%;
+}
+
+.insert {
+  background-color: rgb(221, 221, 221);
+  border: 0.5;
+}
+
+.insert {
+  transition-duration: 0.3s;
+}
+
+.insert:hover {
+  background-color: hotpink; /* Green */
+  color: white;
+}

@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+/* header 기본 설정 */
+header *{
+    box-sizing: border-box;
+}
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 4;
+    /* border: 1px solid red; */
+}
+header a{
+    text-decoration: none;
+}
+header a:hover{
+    text-decoration: none;
+}
+header li{
+    list-style-type: none;
+}
+/* uglyFD-LOGO / uglyFD-TITLE / 마이페이지,장바구니,로그인,회원가입 css시작*/
+#header-divwrap{
+    width: 100%;
+    height: 100px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 100px;
+    background-color: white;
+}
+#header-divwrap>div{
+    width: calc(100% / 5);
+}
+.divwrap-sub .a-inline-block1{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.divwrap-sub img{
+    width: 40%;
+    height: 100%;
+    padding: 5px;
+}
+.uglyFD-title{
+    color: rgb(61, 187, 114);
+    font-size: 4em;
+    font-family: 'Patrick Hand SC', cursive;
+}
+.divwrap-sub5{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.divwrap-sub5>form>button{
+	margin-top: 5px;
+	
+}
+
+.divwrap-sub5 button:not(.sub5-btn){
+    border-radius: 5px;
+    margin: 5px;
+    border: none;
+    text-align: center;
+    background-color: aliceblue;    
+    color: green;
+    font-weight: bolder;
+}
+.sub5-btn{
+    background-color: white;
+    border: none;
+}
+/* uglyFD-LOGO / uglyFD-TITLE / 마이페이지,장바구니,로그인,회원가입 css끝*/
+/* 메뉴바 css시작 */
+#header-navwrap{
+    width: 100%;
+    height: 50px;
+    /* border: 1px solid red; */
+    background-color: rgb(242, 248, 236);
+}
+#header-navwrap ul{
+    margin: 0px;
+    padding: 0px;
+}
+#navwrap-ul{
+    height: 100%;
+}
+#navwrap-ul>li{
+    float: left;
+    width: calc(100% / 4);
+    height: 100%;
+    text-align: center;
+}
+#navwrap-ul a{
+    display: block;
+    line-height: 50px;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: black;
+}
+#navwrap-ul a:hover{
+    color: hotpink;
+}
+#navwrap-ul>li>ul{
+    display: none;
+}
+#navwrap-ul>li>a:hover+ul{
+    display: block;
+}
+#navwrap-ul>li>ul:hover{
+    display: block;
+}

@@ -1,0 +1,6 @@
+/* 그냥 빈공백 채우기 div */
+.recycle-div{
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid red; */
+}
