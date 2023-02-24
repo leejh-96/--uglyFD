@@ -26,7 +26,7 @@
                 <!-- 비로그인 시 처리 -->
                 <c:if test="${ empty loginMember }">
                  <div class="divwrap-sub5">
-                <form action="${ path }/login" method="get">                
+                <form action="${ path }/login" method="get" style="margin-bottom: 0rem;">                
                     <a href="${path }/login"><button class="btn-primary btn-sm">로그인</button></a>
                 </form>
                     <a href="${path }/enroll"><button class="btn-primary btn-sm">회원가입</button></a>
@@ -38,8 +38,8 @@
 				<c:if test="${ not empty loginMember }">
 					<c:if test="${loginMember.grade == 2 }">
 		                <div class="divwrap-sub5">
-		                    <button class="sub5-btn"><a href="${path }"><i class="fa-solid fa-user fa-lg"></i></a></button>
-		                    <button class="sub5-btn"><a href="${path }"><i class="fa-sharp fa-solid fa-cart-shopping fa-lg"></i></a></button>
+		                    <button class="sub5-btn"><a href="${path }/mypage/mypage"><i class="fa-solid fa-user fa-lg"></i></a></button>
+		                    <button class="sub5-btn"><a href="${path }/mypage/mycart?memberNo=${loginMember.no}"><i class="fa-sharp fa-solid fa-cart-shopping fa-lg"></i></a></button>
 		                    <span class="badge-absolute badge">0</span>
 		                    <button onclick="location.replace('${ path }/logout')" class="btn-primary btn-sm" >로그아웃</button>
 		                </div>
