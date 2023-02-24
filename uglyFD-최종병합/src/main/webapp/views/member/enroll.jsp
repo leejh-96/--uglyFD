@@ -30,12 +30,12 @@
             </div></td> 
         <td>&nbsp<input type="text" name="userId" id="userId" size="12" maxlength="12">
             <input type="button" id="checkDuplicate" value="중복검사" >
-            <p>&nbsp4~12자의 영문 대소문자와 숫자로만 입력</p></td>
+            <p style="margin-bottom: 0rem">&nbsp4~12자의 영문 대소문자와 숫자로만 입력</p></td>
     </tr>
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">비밀번호 :</div></td>
         <td>&nbsp<input type="password" id="userPwd1" name="userPwd1" size="12" maxlength="12">
-            <p>&nbsp4~12자의 영문 대소문자와 숫자로만 입력</p></td>
+            <p style="margin-bottom: 0rem">&nbsp4~12자의 영문 대소문자와 숫자로만 입력</p></td>
     </tr>
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">비밀번호 확인 :</div></td>
@@ -44,7 +44,7 @@
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">메일주소 :</div></td>
         <td>&nbsp<input type="text" name="email" id="email" size="30" maxlength="30">
-           <p>&nbspex) uglyfd@naver.com</p></td>
+           <p style="margin-bottom: 0rem">&nbspex) uglyfd@naver.com</p></td>
     </tr>
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">이름 :</div></td>
@@ -52,25 +52,60 @@
     </tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">생년월일 :</div></td>
         <td>&nbsp<input type="text" name="birth" id="birth" size="20" >
-        <p> ex) 1995-09-11</p>
+        <p style="margin-bottom: 0rem"> ex) 1995-09-11</p>
         </td>
 
     </tr>
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">성별 :</div></td>
-        <td>&nbsp<input type="radio" name="gender" id="gender" size="10" value="남자" > 남자 
+        <td>&nbsp<input type="radio" name="gender" id="gender" size="10" value="남자" checked> 남자 
             <input type="radio" name="gender" id="gender" size="10" value="여자" > 여자</td>
     </tr>
     <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">전화번호 :</div></td>
         <td>&nbsp<input type="text" name="phone" id="phone" size="20" maxlength="30">
-            <p>&nbspex) 01000000000</p></td>
+            <p style="margin-bottom: 0rem">&nbspex) 01000000000</p></td>
         </td>
     </tr>
         <tr>
         <td bgcolor="beige" align="center"><div style="font-weight: bold; padding : 10px 0;">주소 :</div></td>
-        <td>&nbsp<input type="text" name="addr" id="addr" size="20" maxlength="30">
-            <p>&nbspex) 서울시 강남구 역삼동 000-000</p></td>
+        <td>&nbsp<input type="text" id="addr" name="addr" placeholder="상세주소까지 입력해주세요." style="width:300px">
+&nbsp<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+<div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은 API KEY를 사용하세요&libraries=services"></script>
+<script>
+    
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("addr").value = addr;
+                // 주소로 상세 정보를 검색
+                geocoder.addressSearch(data.address, function(results, status) {
+                    // 정상적으로 검색이 완료됐으면
+                    if (status === daum.maps.services.Status.OK) {
+
+                        var result = results[0]; //첫번째 결과의 값을 활용
+
+                        // 해당 주소에 대한 좌표를 받아서
+                        var coords = new daum.maps.LatLng(result.y, result.x);
+                        // 지도를 보여준다.
+                        mapContainer.style.display = "block";
+                        map.relayout();
+                        // 지도 중심을 변경한다.
+                        map.setCenter(coords);
+                        // 마커를 결과값으로 받은 위치로 옮긴다.
+                        marker.setPosition(coords)
+}
+                });
+            }
+        }).open();
+    }
+</script>
         </td>
     </tr>
 </table>
@@ -176,14 +211,7 @@ function validate() {
 	  if (!check(regul4, objpho, "전화번호가 잘못 되었습니다.")) {
 	    return false;
 	  }
-	  if (
-	    document.getElementById("gender").checked != true &&
-	    document.getElementById("gender").checked != true
-	  ) {
-	    alert("성별을 체크해 주세요.");
-	    document.getElementById("gender").focus();
-	    return false;
-	  }
+
 	}
 	function check(re, what, message) {
 	  if (re.test(what.value)) {

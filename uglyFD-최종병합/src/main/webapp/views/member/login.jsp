@@ -5,14 +5,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:set var="path" value="${ pageContext.request.contextPath }"/>
 
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/resources/css/bootstrap/css/bootstrap.css">
     <link href="${path}/resources/css/member/login.css" rel="stylesheet"/> 
+
+<body>
+
+<%-- <jsp:include page="/views/common/header.jsp" /> --%>
 
 
 <!-- LOGIN MODULE -->
@@ -20,9 +24,9 @@
             <div class="wrap">
 
                 <!-- LOGIN FORM -->
-                <div class="user">
+                <div class="user" >
                     <div class="logo">
-                        <a href="${path }"><img src="http://res.cloudinary.com/dpcloudinary/image/upload/v1506186248/logo.png" alt=""></a>
+                        <a href="${path }"><img src="${path }/resources/images/ugly-logo.png" alt=""></a>
                     </div>
                     <!-- TOGGLE -->
                     <div id="toggle-wrap">
@@ -51,14 +55,21 @@
 
                             <input type="checkbox" class="checkbox" id="remember_me" checked name="saveId" ${ empty cookie.saveId ? "" : "checked" }>
                             <label for="remember_me" >아이디 저장</label>
-
-                            <input type="submit" class="button" value="Login" >
+							
+							<div>
+                            <input type="submit" class="button" value="Login" style="display :inline-block; margin-left:17%;" >
+                            <input  type="button" class="button" value="Home" style="display :inline-block;"
+                            onclick="location.href='${ path }/'">
+							</div>
                           </form>
                           <div>
                               <div class="help-action">
-                                  <span><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">아이디 찾기</a></span>
+                                  <span><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="${path }/views/price/pay.jsp">아이디 찾기</a></span>
                                   <span class="help"><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">비밀번호 찾기</a></span>
                                 </div>
                             </div>
                         </div>
 
+<%-- <jsp:include page="/views/common/footer.jsp"/> --%>
+
+</body>
