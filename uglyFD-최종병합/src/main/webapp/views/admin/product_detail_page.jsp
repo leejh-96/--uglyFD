@@ -120,8 +120,10 @@
 						</label>
 					</c:if>
 					<c:if test="${product.productAmount > 0 }">
-	                    <button type="button" class="btn find-btn1">주문하기</button>
-	                    <button type="button" class="btn find-btn1">장바구니</button>
+<!-- 	                    <button type="button" class="btn find-btn1">주문하기</button> -->
+					<c:if test="${not empty loginMember }">
+	                    <button onclick="location.href='${path}/mypage/mycart'" type="button" class="btn find-btn1">장바구니</button>
+	                </c:if>
 	                </c:if>
 				</form>
 				<form action="${path }/review/update" method="post">
