@@ -26,7 +26,7 @@
                 <!-- LOGIN FORM -->
                 <div class="user" >
                     <div class="logo">
-                        <a href="${path }"><img src="${path }/resources/images/ugly-logo.png" alt=""></a>
+                        <a href="${path }/main/home.do"><img src="${path }/resources/images/ugly-logo.png" alt=""></a>
                     </div>
                     <!-- TOGGLE -->
                     <div id="toggle-wrap">
@@ -59,12 +59,12 @@
 							<div>
                             <input type="submit" class="button" value="Login" style="display :inline-block; margin-left:17%;" >
                             <input  type="button" class="button" value="Home" style="display :inline-block;"
-                            onclick="location.href='${ path }/'">
+                            onclick="location.href='${ path }/main/home.do'">
 							</div>
                           </form>
                           <div>
                               <div class="help-action">
-                                  <span><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="${path }/views/price/pay.jsp">아이디 찾기</a></span>
+                                  <span><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">아이디 찾기</a></span>
                                   <span class="help"><i class="fa fa-arrow-left" aria-hidden="true"></i><a class="forgot" href="#">비밀번호 찾기</a></span>
                                 </div>
                             </div>
