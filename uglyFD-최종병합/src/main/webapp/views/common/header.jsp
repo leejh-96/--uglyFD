@@ -17,7 +17,7 @@
 	<!-- uglyFD-header -->
     <header>
         <div id="header-divwrap">
-            <div class="divwrap-sub"><a class="a-inline-block1" href="${path }"><img src="${path }/resources/images/ugly-logo.png" alt="uglyFD-logo"></a></div>
+            <div class="divwrap-sub"><a class="a-inline-block1" href="${path }/main/home.do"><img src="${path }/resources/images/ugly-logo.png" alt="uglyFD-logo"></a></div>
             <div class="divwrap-sub"></div>
             <div class="divwrap-sub"><a class="a-inline-block1 uglyFD-title" href="${path }/main/home.do">uglyFD</a></div>
             <div class="divwrap-sub"></div>
@@ -27,7 +27,7 @@
                 <c:if test="${ empty loginMember }">
                  <div class="divwrap-sub5">
                 <form action="${ path }/login" method="get" style="margin-bottom: 0rem;">                
-                    <a href="${path }/login"><button class="btn-primary btn-sm">로그인</button></a>
+                    <a href="${path }/login"><button class="btn-primary btn-sm" id="loginbutton">로그인</button></a>
                 </form>
                     <a href="${path }/enroll"><button class="btn-primary btn-sm">회원가입</button></a>
                        
@@ -39,7 +39,7 @@
 					<c:if test="${loginMember.grade == 2 }">
 		                <div class="divwrap-sub5">
 		                    <button class="sub5-btn"><a href="${path }/mypage/mypage"><i class="fa-solid fa-user fa-lg"></i></a></button>
-		                    <button class="sub5-btn"><a href="${path }/mypage/mycart?memberNo=${loginMember.no}"><i class="fa-sharp fa-solid fa-cart-shopping fa-lg"></i></a></button>
+		                    <button class="sub5-btn"><a href="${path }/mypage/mycart"><i class="fa-sharp fa-solid fa-cart-shopping fa-lg"></i></a></button>
 		                    <span class="badge-absolute badge">0</span>
 		                    <button onclick="location.replace('${ path }/logout')" class="btn-primary btn-sm" >로그아웃</button>
 		                </div>
@@ -50,7 +50,7 @@
 				<c:if test="${loginMember.grade == 1 }">
 	                <div class="divwrap-sub5">
 	                    	<button class="sub5-btn"><a href="${path }/views/admin/admin_page.jsp"><i class="fa-solid fa-user-secret fa-lg">-MANAGER-</i></a></button>
-	                    <form action="${path }" method="GET">
+	                    <form action="${path }/logout" method="GET">
 	                        <button onclick="location.replace('${ path }/logout')" class="btn-primary btn-sm">로그아웃</button>
 	                    </form>
 	                </div> 
@@ -61,13 +61,13 @@
         <nav id="header-navwrap">
             <ul id="navwrap-ul">
                 <li>
-                    <a href="${path }">상품</a>
+                    <a href="#">상품</a>
                     <ul>
                         <li><a href="${path }/product/category?productCategoryNum=2">채소</a></li>
                         <li><a href="${path }/product/category?productCategoryNum=1">과일</a></li>
                     </ul>
                 </li>
-                <li><a href="${path }">공지사항</a></li>
+                <li><a href="${path }/notice/list">공지사항</a></li>
                 <li><a href="${path }/board/inquire">1 : 1 문의</a></li>
                 <li>
                     <a href="${path }/board/cuscenter">고객센터</a>

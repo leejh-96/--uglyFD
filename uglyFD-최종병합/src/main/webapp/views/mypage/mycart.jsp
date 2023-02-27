@@ -44,31 +44,18 @@
                     </thead>
                     <tbody>
                         <tr class="cart__list__detail">
-                            <td class="td1"><input value="${ product.productNum }" type="checkbox" onClick="itemSum(this.form)" name="chk" ></td>
-                            <td class="td1"><img class="img2" src="${path }/resources/images/food1.jpg"></td>
-                            <td class="td1"><a href="#"></a><span value="${ product.productName }" class="cart__list__smartstore" name="fruit" ></span>
-                            </td>
-                            <td  class="td1">
-                                <label for="amount">수량 :</label>
-                                <input type="number" name="amount" id="amount" value="${ product.productAmount }" >
-                            </td>
-                            <td class="td1"><span class="price" value="${ product.productPrice }"></span><br>
-                            </td>
-                            <td class="td1">2500원</td>
-                        </tr>
-                        <tr class="cart__list__detail">
-                            <td class="td1" style="width: 2%;"><input type="checkbox" onClick="itemSum(this.form)" name="chk"  value="30000" "></td>
+                            <td class="td1" style="width: 2%;"><input type="checkbox" onClick="itemSum(this.form)" name="chk"  value="26000" "></td>
                             <td class="td1"style="width: 13%;">
-                                <img class="img2" src="${path }/resources/images/food2.jpg">
+                                <img class="img2" src="${path }/resources/upload/product/20230226_222529454_68.jpg">
                             </td>
-                            <td class="td1" style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"  name="fruit">무우</span>
-                                <p>무가 생동감이 넘쳐 가출을 감행해요!</p>
+                            <td class="td1" style="width: 27%;"><a href="#"></a><span class="cart__list__smartstore"  name="fruit">사과</span>
+                                <p>	너무 맛있어서 사과합니다.</p>
                             </td>
                             <td  class="td1" style="width: 27%;">
                             <label for="amount" >수량 :</label>
                             <input type="number" name="amount" id="amount" value="1" min="0" >    
                             </td>
-                            <td class="td1" style="width: 15%;"><span class="price">40,000원</span><br>
+                            <td class="td1" style="width: 15%;"><span class="price">26,000원</span><br>
                             </td>
                             <td class="td1" style="width: 15%;">2500원</td>
                         </tr>
