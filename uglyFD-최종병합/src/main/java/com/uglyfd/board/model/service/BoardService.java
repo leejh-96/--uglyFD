@@ -20,9 +20,9 @@ public class BoardService {
     public int getBoardCount() {
         int count = 0;
         Connection connection = getConnection();
-
+        System.out.println("service getboardcount 입니다.");
         count = new BoardDao().getBoardCount(connection);
-
+        System.out.println("service getboardcount 입니다.");
         close(connection);
 
         return count;
@@ -31,9 +31,9 @@ public class BoardService {
     public List<Board> getBoardInquire(PageInfo pageInfo) {
         List<Board> inquire = null;
         Connection connection = getConnection();
-
+        System.out.println("service getBoardInquire 입니다.");
         inquire = new BoardDao().findAll(connection, pageInfo);
-
+        System.out.println("service getBoardInquire 입니다.");
         close(connection);
 
         return inquire;

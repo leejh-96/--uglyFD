@@ -29,44 +29,50 @@
     table#tbl1-comment123 sub.comment-writer {color:navy; font-size:14px}
     table#tbl1-comment123 sub.comment-date {color:tomato; font-size:10px}
 
- 	.main-section .table th { width: 120px; border:1px solid #1d2124; background:lightgray;} 
-	.main-section .table td { width: 280px; text-align: left; border:1px solid #1d2124;}
-	.main-section .table tr:nth-child(4) td { height: 200px; }
+    .main-section .table th { width: 120px; border:1px solid #1d2124; background:lightgray;} 
+   .main-section .table td { width: 280px; text-align: left; border:1px solid #1d2124;}
+   .main-section .table tr:nth-child(4) td { height: 200px; }
 </style>
 </head>
 <body>
 
-	<section class="main-section">
-			<br>
-		<h1>1대1<small>문의사항</small></h1>
-		<br>
-		<table class="table table-bordered" >
-			<tr>
-				<th>번호</th>
-				<td>${ board.no }</td>
-				<th>작성자</th>
-				<td>${ board.writerId }</td>
-			</tr>
-			<tr>
-				<th>날짜</th>
-				<td>${ board.createDate }</td>
-				<th>조회수</th>
-				<td>${ board.readCount }</td>
-			</tr>	
-			<tr>
-				<th>제목</th>
-				<td colspan="3">${ board.title }</td>
-			</tr>		
-			<tr>
-				<th>내용</th>
-				<td colspan="3">${ board.content }</td>
-			</tr>		
-			<tr>
+   <section class="main-section">
+         <br>
+      <h1>1대1<small>문의사항</small></h1>
+      <br>
+      <table class="table table-bordered" >
+         <tr>
+            <th>번호</th>
+            <td>${ board.no }</td>
+            <th>작성자</th>
+            <td>${ board.writerId }</td>
+         </tr>
+         <tr>
+            <th>날짜</th>
+            <td>${ board.createDate }</td>
+            <th>조회수</th>
+            <td>${ board.readCount }</td>
+         </tr>   
+         <tr>
+            <th>제목</th>
+            <td colspan="3">${ board.title }</td>
+         </tr>      
+         <tr>
+            <th>내용</th>
+            <td colspan="3">${ board.content }</td>
+         </tr>      
+         <tr>
             <th colspan="4" style="padding-left:74%">
-               <c:if test="${ not empty loginMember && loginMember.id == board.writerId }">
-                  <button type="button" onclick="location.href='${ path }/board/update?no=${ board.no }'">수정</button>
+            <c:if test="${not empty loginMember && loginMember.grade == 1}">
                   <button type="button" id="btnDelete">삭제</button>
-               </c:if>
+            </c:if>
+            <c:if test="${not empty loginMember && (loginMember.grade == 1 && loginMember.id == board.writerId)}">
+            	  <button type="button" onclick="location.href='${ path }/board/update?no=${ board.no }'">수정</button>
+            </c:if>
+            <c:if test="${ not empty loginMember && (loginMember.grade == 2 && loginMember.id == board.writerId)}">
+                  <button type="button" onclick="location.href='${ path }/board/update?no=${ board.no }'">수정</button>
+               	  <button type="button" id="btnDelete">삭제</button>
+            </c:if>
                <button  type="button" onclick="location.href='${ path }/board/inquire'">목록으로</button>
             </th>
          </tr>
@@ -105,9 +111,9 @@
              </tr>
           </c:forEach>
           <br>
-		</table>
+      </table>
 <br><br>
-	</section>	
+   </section>   
 
 </body>
 
@@ -119,9 +125,9 @@
          }
       });
       $('#replyDelete').on('click', (event) => {
-    	  var replyNo = $(event.target).attr('replyNo');
+         var replyNo = $(event.target).attr('replyNo');
           if(confirm('에에에~? 진짜 삭제할꺼야?')) {
-        	  location.href='${ path}/reply/delete?no=' + replyNo;
+              location.href='${ path}/reply/delete?no=' + replyNo;
           }
        });
       
@@ -138,17 +144,19 @@
       
       $('#replyContent').on('focus', () => {
          if(${ empty loginMember}) {
-            alert('로그인 후 이용해 주세요.')   ;
+            alert('로그인 후 이용해 주세요.');
             $('#loginbutton').focus();
          }
       });
       
       $('#btn-insert').on('focus', () => {
-    	  if(${ not empty loginMemer}) {
-    		  alert('로그인 후 이용해 주세요.') ;
-    		  $('#loginbutton').focus();
-    	  }
-      })
+         if(${ empty loginMember}) {
+            alert('로그인 후 이용해 주세요.') ;
+            $('#loginbutton').focus();
+         }
+      });
+      
+      
    });
 </script>
 <jsp:include page="/views/common/footer.jsp" /> 

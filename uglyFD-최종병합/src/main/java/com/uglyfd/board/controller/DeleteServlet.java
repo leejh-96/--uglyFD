@@ -17,42 +17,53 @@ import com.uglyfd.member.model.vo.Member;
 public class DeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
     public DeleteServlet() {
     }
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int result = 0;
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-
+		 Board board = new Board();
 		
-		Board board = new Board();
-		
-     HttpSession session = request.getSession();
-     Member loginMember = (session == null) ? null:(Member)session.getAttribute("loginMember");
+	     HttpSession session = request.getSession();
+	     Member loginMember = (session == null) ? null:(Member)session.getAttribute("loginMember");
      
-     if (loginMember != null){
-     
-        board = new BoardService().getBoardByNo(Integer.parseInt(request.getParameter("no")), true);
-     
-        if (board != null && loginMember.getId().equals(board.getWriterId())) {
-     
-           result = new BoardService().delete(no);
-           System.out.println("게시글 번호 : " + no);
-           
-           if (result > 0) {
-              request.setAttribute("msg", "게시글 삭제 성공");
-              request.setAttribute("location", "/board/inquire");
-           } else {
-              request.setAttribute("msg", "게시글 삭제 실패");
-              request.setAttribute("location", "/board/view?no=" + no);
-           }
-           
-           request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-        } 
-     }
-        
+	     if ((loginMember.getGrade() == 1)&&loginMember != null) {
+	    	 
+	    	 board = new BoardService().getBoardByNo(Integer.parseInt(request.getParameter("no")), true);
+	    	 result = new BoardService().delete(no);
+	    	 
+	    	 if (result > 0) {
+	    		 request.setAttribute("msg", "게시글 삭제 성공");
+	    		 request.setAttribute("location", "/board/inquire");
+	    	 } else {
+	    		 request.setAttribute("msg", "게시글 삭제 실패");
+	    		 request.setAttribute("location", "/board/view?no=" + no);
+	    	 }
+	    	 
+	    	 request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+	     }
+	     
+	     if ((loginMember.getGrade() == 2)&&loginMember != null){
+	    	 
+	    	 board = new BoardService().getBoardByNo(Integer.parseInt(request.getParameter("no")), true);
+	    	 
+	        if (board != null && loginMember.getId().equals(board.getWriterId())) {
+				
+	        	result = new BoardService().delete(no);
+		           
+		           System.out.println("게시글 번호 : " + no);
+		           
+		           if (result > 0) {
+		              request.setAttribute("msg", "게시글 삭제 성공");
+		              request.setAttribute("location", "/board/inquire");
+		           } else {
+		              request.setAttribute("msg", "게시글 삭제 실패");
+		              request.setAttribute("location", "/board/view?no=" + no);
+		           }
+		           request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
+			}
+	    }
 	}
 }

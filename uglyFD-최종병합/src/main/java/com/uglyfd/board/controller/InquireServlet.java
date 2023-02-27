@@ -35,8 +35,14 @@ public class InquireServlet extends HttpServlet {
     	}
     	
     	listCount = new BoardService().getBoardCount();
+        System.out.println("listCount  "+listCount);
+
     	pageInfo = new PageInfo(page, 5, listCount, 10);
+    	System.out.println("pageInfo  "+pageInfo);
+    	
     	inquire = new BoardService().getBoardInquire(pageInfo);
+    	System.out.println("inquire    "+inquire);
+    	
     	
     	System.out.println(inquire);
     	

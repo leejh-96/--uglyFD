@@ -16,23 +16,24 @@ import com.uglyfd.board.model.service.BoardService;
 
 @WebServlet(name = "replydelete", urlPatterns = { "/reply/delete" })
 public class ReplyDeleteServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   private static final long serialVersionUID = 1L;
        
 
     public ReplyDeleteServlet() {
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int result = 0;
-		int no = Integer.parseInt(request.getParameter("no"));
-		
-		System.out.println("댓글 번호 : " + no);
-		
-		result = new BoardService().replydelete(no);
+   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+      int result = 0;
+      int no = Integer.parseInt(request.getParameter("no"));
+//         int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+         
+      System.out.println("댓글 번호 : " + no);
+      
+      result = new BoardService().replydelete(no);
            
            if (result > 0) {
               request.setAttribute("msg", "댓글 삭제 성공");
-              request.setAttribute("location", "/board/view?no=" + no);
+              request.setAttribute("location", "/board/inquire");
            } else {
               request.setAttribute("msg", "댓글 삭제 실패");
               request.setAttribute("location", "/board/view?no=" + no);
@@ -42,4 +43,4 @@ public class ReplyDeleteServlet extends HttpServlet {
         } 
      
         
-	}
+   }

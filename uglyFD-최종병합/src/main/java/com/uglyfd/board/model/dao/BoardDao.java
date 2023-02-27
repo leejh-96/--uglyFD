@@ -18,6 +18,8 @@ import static com.uglyfd.common.jdbc.JDBCTemplate.close;
 public class BoardDao {
 
     public int getBoardCount(Connection connection) {
+    	
+    	System.out.println("boardcount   입니다.");
         int count = 0;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -36,7 +38,7 @@ public class BoardDao {
             close(rs);
             close(pstmt);
         }
-
+        System.out.println("boardcount   " + count);
         return count;
     }
 
@@ -76,8 +78,6 @@ public class BoardDao {
 	            board.setStatus(rs.getString("B_STATUS"));
 	            
 	            inquire.add(board);
-	            
-
 	
 	         }
 	      } catch (SQLException e) {
@@ -86,7 +86,7 @@ public class BoardDao {
 	         close(rs);
 	         close(pstmt);
 	      }
-	      
+	      System.out.println("findall = dao");
 	      return inquire;
 	   }
 
