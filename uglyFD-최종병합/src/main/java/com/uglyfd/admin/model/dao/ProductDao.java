@@ -822,8 +822,9 @@ public class ProductDao {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String query = "DELETE FROM member "
-						+ "WHERE m_no = ? and m_grade = 2 ";
+		String query = "UPDATE MEMBER "
+					+ "SET M_GRADE = 10 "
+					+ "WHERE M_NO = ?  ";
 		
 		try {
 			pstmt = connection.prepareStatement(query);

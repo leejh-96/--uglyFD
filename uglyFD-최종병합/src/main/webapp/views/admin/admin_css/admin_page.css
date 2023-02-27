@@ -3,11 +3,6 @@
 .admin-sidenav:hover{
     color: hotpink;
 }
-/* .card{ */
-/* 	display: inline-block; */
-/* 	width: 200px; */
-/* 	height: 200px; */
-/* } */
 #admin-wrap{
     display: flex;
     width: 100%;
@@ -17,7 +12,7 @@
 #wrap-div1{
     width: 20%;
     height: 100%;
-    background-color: rgb(242, 248, 236);
+/*     background-color: rgb(242, 248, 236); */
     /* border: 1px solid red; */
 }
 .admin-sidenav{
@@ -41,7 +36,7 @@
 	text-align: center;
 }
 .find-btn1{
-	display :inline-block;
+	display :inline-block; 
     background-color: cornsilk;
 }
 #wrap-div2>h1{
@@ -52,7 +47,6 @@
 #wrap-div2{
     width: 60%;
     height: 100%;
-    /* border: 1px solid red; */
 }
 #wrap-div3{
     width: 20%;

@@ -23,19 +23,25 @@ public class ProductDeleteServlet extends HttpServlet {
 		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		String productName = request.getParameter("productName");
 		
+		System.out.println(productNum);
+		System.out.println(productName);
+		
 		result = new ProductService().productDelete(productNum,productName);
+		
+		System.out.println("result"+result);
 		
 		if (result > 0) {
 			System.out.println("삭제 성공");
 			request.setAttribute("msg", "상품 삭제에 성공하셨습니다.");
 			request.setAttribute("location", "/views/admin/admin_product_detail.jsp");
+
 		}else {
 			System.out.println("삭제 실패");
 			request.setAttribute("msg", "상품 삭제에 실패하셨습니다.");
 			request.setAttribute("location", "/views/admin/admin_product_detail.jsp");
-		}
-		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 		
 	}
+		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 
+	}
 }

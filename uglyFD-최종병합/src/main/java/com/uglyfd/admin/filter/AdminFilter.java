@@ -29,7 +29,7 @@ public class AdminFilter implements Filter {
 		
 		if(loginMember == null || loginMember.getGrade() != 1) {
 			request.setAttribute("msg","잘못된 경로로 접근하셨습니다.");
-			request.setAttribute("location","/");
+			request.setAttribute("location","/main/home.do");
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 
 			return;

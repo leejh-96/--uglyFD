@@ -13,20 +13,29 @@
 <link rel="stylesheet" href="${path }/resources/css/uglyFD-components/uglyFD-recycle.css">
 <link rel="stylesheet" href="${path }/views/admin/admin_css/admin_page.css">
 </head>
+<style>
+.div-h1{
+	width: 100%;
+	height: 50px;
+}
+#wrap-div1 a{
+	text-decoration: none;
+}
+</style>
 <body>
 	<jsp:include page="/views/common/header.jsp" />
 	
 	<div id="admin-wrap">
         <div id="wrap-div1">
-            <div><a href="${path }/views/admin/admin_members.jsp" class="admin-sidenav">회원관리</a></div>
-            <div><a href="${path }/views/admin/admin_product.jsp" class="admin-sidenav">상품등록</a></div>
-            <div><a href="${path }/views/admin/admin_product_detail.jsp" class="admin-sidenav">재고관리</a></div>
-            <div><a href="${path }/productinout" class="admin-sidenav">입/출고조회</a></div>
+            <div><a href="${path }/views/admin/admin_members.jsp" class="admin-sidenav"><i class="fa-solid fa-users"></i> 회원관리</a></div>
+            <div><a href="${path }/views/admin/admin_product.jsp" class="admin-sidenav"><i class="fa-solid fa-crown"></i> 상품등록</a></div>
+            <div><a href="${path }/views/admin/admin_product_detail.jsp" class="admin-sidenav"><i class="fa-solid fa-otter"></i> 재고등록 / 상품수정</a></div>
+            <div><a href="${path }/productinout" class="admin-sidenav"><i class="fa-brands fa-waze"></i> 입/출고내역</a></div>
         </div>
        <div id="wrap-div2">
-            <div class="recycle-div1"></div>
-            <h1>입/출고조회</h1>
-            <div class="recycle-div1"></div>
+            <div class="div-h1"></div>
+	            <h1>입/출고내역</h1>
+	        <div class="div-h1"></div>
             <c:if test="${list == null}">
             조회된 입출고 내역이 없습니다.
             </c:if>
@@ -49,9 +58,9 @@
 	                        <th>${io.num }</th>
 	                        <td>${io.inOutNum }</td>
 	                        <td>${io.productName }</td>
-	                        <td>${io.productPrice }</td>
-	                        <td>${io.productStock }</td>
-	                        <td>${io.status }</td>
+	                        <td>${io.productPrice }(원)</td>
+	                        <td style="color: blue;">5kg ${io.productStock } (Box)</td>
+	                        <td style="color: red;">${io.status }</td>
 	                        <td>${io.inOutDate }</td>
 	                    </tr>
                     </c:forEach>

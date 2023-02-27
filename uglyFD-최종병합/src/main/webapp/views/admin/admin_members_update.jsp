@@ -13,15 +13,20 @@
 <link rel="stylesheet" href="${path }/resources/css/uglyFD-components/uglyFD-recycle.css">
 <link rel="stylesheet" href="${path }/views/admin/admin_css/admin_page.css">
 </head>
+<style>
+#wrap-div1 a{
+	text-decoration: none;
+}
+</style>
 <body>
 	<jsp:include page="/views/common/header.jsp" />
 	
 	<div id="admin-wrap">
         <div id="wrap-div1">
-            <div><a href="${path }/views/admin/admin_members.jsp" class="admin-sidenav">회원관리</a></div>
-            <div><a href="${path }/views/admin/admin_product.jsp" class="admin-sidenav">상품등록</a></div>
-            <div><a href="${path }/views/admin/admin_product_detail.jsp" class="admin-sidenav">재고관리</a></div>
-            <div><a href="${path }/productinout" class="admin-sidenav">입/출고조회</a></div>
+            <div><a href="${path }/views/admin/admin_members.jsp" class="admin-sidenav"><i class="fa-solid fa-users"></i> 회원관리</a></div>
+            <div><a href="${path }/views/admin/admin_product.jsp" class="admin-sidenav"><i class="fa-solid fa-crown"></i> 상품등록</a></div>
+            <div><a href="${path }/views/admin/admin_product_detail.jsp" class="admin-sidenav"><i class="fa-solid fa-otter"></i> 재고등록 / 상품수정</a></div>
+            <div><a href="${path }/productinout" class="admin-sidenav"><i class="fa-brands fa-waze"></i> 입/출고내역</a></div>
         </div>
        <div id="wrap-div2">
             <div class="recycle-div1"></div>
@@ -48,7 +53,7 @@
 	                    </tr>
 	                    <tr>
 	                        <th scope="col">회원전화번호</th>
-	                        <th><input type="text" placeholder="${amember.phone }" size="40px" name="phone" required></th>
+	                        <th><input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="${amember.phone }" size="40px" name="phone" required></th>
 	                    </tr>
 	                    <tr>
 	                        <th scope="col">등록일자</th>
@@ -62,8 +67,8 @@
 	              </table>
                 <div class="find-btn">
                 	<input type="hidden" name="memberNo" value="${amember.no }">
-                    <button type="submit" class="btn find-btn1">수정하기</button>
-                    <button onclick="history.go(-1);" type="reset" class="btn find-btn1">이전으로</button>
+                    <button type="submit" class="btn find-btn1" style="background-color: rgb(255, 244, 164);">수정하기</button>
+                    <button onclick="history.go(-1);" type="reset" class="btn find-btn1" style="background-color: rgb(255, 244, 164);">이전으로</button>
                 </div>
             </form>
 
