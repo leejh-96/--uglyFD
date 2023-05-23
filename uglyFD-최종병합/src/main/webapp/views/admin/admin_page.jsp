@@ -14,14 +14,6 @@
 <link rel="stylesheet" href="${path }/views/admin/admin_css/admin_page.css">
 </head>
 <body>
-	
 	<jsp:include page="/views/admin/admin_members.jsp"/>
-	
-<%-- 	<jsp:include page="/views/admin/admin_product.jsp"/> --%>
-	
-<%-- 	<jsp:include page="/views/admin/admin_product_detail.jsp"/> --%>
-	
-<%-- 	<jsp:include page="/views/admin/admin_inout.jsp"/> --%>
-	
 </body>
 </html>

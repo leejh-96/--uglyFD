@@ -30,7 +30,6 @@ public class ProductInOutSearchServlet extends HttpServlet {
 		
 		try {
 			page = Integer.parseInt(request.getParameter("page"));
-			System.out.println(page);
 			if (page == 0) {
 				page = 1;
 			}
@@ -44,7 +43,6 @@ public class ProductInOutSearchServlet extends HttpServlet {
 		list = new ProductService().findByInOut(pageInfo);
 		
 		if ((listCount != 0) && (list != null)) {
-			System.out.println(list);
 			request.setAttribute("list", list);
 			request.setAttribute("pageInfo", pageInfo);
 			request.getRequestDispatcher("/views/admin/admin_inout.jsp").forward(request, response);

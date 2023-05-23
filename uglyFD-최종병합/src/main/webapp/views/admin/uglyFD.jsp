@@ -14,14 +14,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-
-	
-
 	<jsp:include page="/views/common/header.jsp" />
-	
 	<jsp:include page="/views/admin/main_figure_section.jsp" />
-	
 	<jsp:include page="/views/common/footer.jsp" />
-
 </body>
 </html>

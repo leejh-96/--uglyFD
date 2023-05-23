@@ -9,7 +9,6 @@
 <head>
 <meta charset="UTF-8">
 <title>상품상세페이지</title>
-<%-- <link rel="stylesheet" href="${path }/resources/css/uglyFD-components/uglyFD-figure,section.css"> --%>
 <link rel="stylesheet" href="${path }/resources/css/uglyFD-components/uglyFD-recycle.css">
 <link rel="stylesheet" href="${path }/views/admin/product_css/product_detail_page.css">
 <link rel="stylesheet" href="${path }/resources/css/common_css/uglyFD-main.css">

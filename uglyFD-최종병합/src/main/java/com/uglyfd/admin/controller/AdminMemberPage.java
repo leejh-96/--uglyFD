@@ -25,11 +25,8 @@ public class AdminMemberPage extends HttpServlet {
 		
 		int memberNo = Integer.parseInt(request.getParameter("memberDelete"));
 	
-		System.out.println(memberNo);
-	
 		result = new ProductService().memberDelete(memberNo);
 	
-		System.out.println(result);
 		if (result > 0) {
 			System.out.println("멤버 삭제에 최종 성공했습니다.");
 			request.getRequestDispatcher("/views/admin/admin_members.jsp").forward(request, response);
@@ -37,8 +34,6 @@ public class AdminMemberPage extends HttpServlet {
 			System.out.println("멤버 삭제에 최종 실패했습니다.");
 			request.getRequestDispatcher("/views/admin/admin_members.jsp").forward(request, response);
 		}
-	
-	
 	
 	}
 

@@ -17,7 +17,6 @@
 .grid{
 	width:100%;
 	height:600px;
-/* 	border: 1px solid red;  */
 }
 #productDetail{
 	border: 1.5px solid black;
@@ -46,7 +45,6 @@
 	            <h1>재고등록</h1>
 	       <div class="div-h1"></div>
 	       
-<%-- 	        <form action="${path }/product/update" method="POST" enctype="multipart/form-data" class="update-btn"> --%>
             <div class="container-fluid">
 		        <div class="row">
 		            <div class="col-6 grid">
@@ -143,7 +141,6 @@
 	        return false;
 	    }
 	})
-	
 
 		$('#productStock').on('click',function(){
 			

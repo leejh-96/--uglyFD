@@ -27,12 +27,9 @@ public class ProductStockUpdateServlet extends HttpServlet {
 		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		
 		ProductFile productfile = new ProductService().findByProductFile(productNum);
-		System.out.println(productfile.getOriginalFileName());
-		System.out.println(productfile.getRenamedFileName());
 		
 		request.setAttribute("productfile", productfile);
-		
-//==================================================================================================
+
 		Product product = new ProductService().findByProduct(productCategoryNum, productName);
 		
 		request.setAttribute("product", product);

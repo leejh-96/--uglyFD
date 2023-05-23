@@ -71,7 +71,6 @@ public class ProductDao {
 			
 			pstmt.setString(1, product.getProductName());
 			pstmt.setInt(2, product.getProductPrice());
-			System.out.println("dao/서브쿼리끝");
 			pstmt.setInt(3, productFile.getProductCategoryNum());
 			pstmt.setString(4, productFile.getOriginalFileName());
 			pstmt.setString(5, productFile.getRenamedFileName());
@@ -198,12 +197,6 @@ public class ProductDao {
 			pstmt.setString(4, io.getStatus());
 			
 			result = pstmt.executeUpdate();
-			if (result > 0) {
-				System.out.println("재고등록 성공");
-				
-			}else {
-				System.out.println("재고등록 실패");
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -215,7 +208,6 @@ public class ProductDao {
 
 	public InOut productStockSearch(Connection connection, InOut io) {
 		
-//		int stockcount = 0;
 		InOut inout = new InOut();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -242,7 +234,7 @@ public class ProductDao {
 		}
 		return inout;
 	}
-//  검색 기능은 다시 생각해보기
+	
 	public List<InOut> findByInOut(Connection connection, PageInfo pageInfo) {
 
 		List<InOut> list = new ArrayList<>();
@@ -339,7 +331,6 @@ public class ProductDao {
 			pstmt.setInt(3, product.getProductPrice());
 			pstmt.setString(4, product.getProductDetail());
 			pstmt.setInt(5, product.getProductNum());
-//			pstmt.setString(6, product.getProductName());
 		
 			result = pstmt.executeUpdate();
 		
@@ -841,25 +832,4 @@ public class ProductDao {
 		return result;
 	}
 
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

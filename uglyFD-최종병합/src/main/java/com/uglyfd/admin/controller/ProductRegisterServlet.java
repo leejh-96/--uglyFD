@@ -54,17 +54,7 @@ public class ProductRegisterServlet extends HttpServlet {
 		product.setProductCategoryNum(Integer.parseInt(mr.getParameter("productCategoryNum")));
 		product.setProductName(mr.getParameter("productName"));
 		product.setProductPrice(Integer.parseInt(mr.getParameter("productPrice")));
-//		product.setDiscount(Integer.parseInt(mr.getParameter("discount")));
 		product.setProductDetail(mr.getParameter("productDetail"));
-		
-		System.out.println(productFile.getProductCategoryNum());
-		System.out.println(productFile.getOriginalFileName());
-		System.out.println(productFile.getRenamedFileName());
-		System.out.println(product.getProductCategoryNum());
-		System.out.println(product.getProductName());
-		System.out.println(product.getProductPrice());
-		System.out.println(product.getProductDetail());
-		
 		
 		result = new ProductService().save(product, productFile);
 		

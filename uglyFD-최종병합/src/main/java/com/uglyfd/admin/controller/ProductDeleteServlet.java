@@ -23,12 +23,7 @@ public class ProductDeleteServlet extends HttpServlet {
 		int productNum = Integer.parseInt(request.getParameter("productNum"));
 		String productName = request.getParameter("productName");
 		
-		System.out.println(productNum);
-		System.out.println(productName);
-		
 		result = new ProductService().productDelete(productNum,productName);
-		
-		System.out.println("result"+result);
 		
 		if (result > 0) {
 			System.out.println("삭제 성공");

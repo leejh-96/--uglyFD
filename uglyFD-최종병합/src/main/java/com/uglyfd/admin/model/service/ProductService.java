@@ -244,6 +244,7 @@ public class ProductService {
 		}
 		return list;
 	}
+	
 	public int productReview(String loginMemberId, int productNum, int productCategoryNum, String review) {
 		//, String loginMemberId매개변수에 넣기
 		int result = 0;

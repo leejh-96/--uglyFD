@@ -83,10 +83,6 @@
 		                        <textarea id="pDetail" placeholder="간략한 상품소개 작성" name="productDetail" id="" cols="63" rows="5" style="resize:none;" required></textarea>
 		                    </th>
 		                </tr>
-<!--                         <tr> -->
-<!--                             <th scope="row" colspan="2">상세설명</th> -->
-<!--                             <td><textarea id="pDetail" name="productDetail"  cols="63" rows="5" style="resize: none; " required></textarea></td> -->
-<!--                         </tr> -->
                     </tbody>
                 </table>
                 <div class="find-btn">
@@ -123,21 +119,6 @@
 			alert('한가지만 선택해주세요.');
 			return false;
 		}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	</script>
 	

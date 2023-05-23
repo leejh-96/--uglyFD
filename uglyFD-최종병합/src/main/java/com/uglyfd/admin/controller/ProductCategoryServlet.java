@@ -27,8 +27,6 @@ public class ProductCategoryServlet extends HttpServlet {
 			try {
 				productCategoryNum = Integer.parseInt(request.getParameter("productCategoryNum"));
 				
-				System.out.println(productCategoryNum);
-				
 			} catch (NumberFormatException e) {
 				productCategoryNum = 1;
 			}
@@ -36,8 +34,6 @@ public class ProductCategoryServlet extends HttpServlet {
 			List<Product> list = null;
 			
 			list = new ProductService().findByProductCategory(productCategoryNum);
-			
-			System.out.println(list);
 			
 			request.setAttribute("list", list);
 			request.setAttribute("productCategoryNum", productCategoryNum);

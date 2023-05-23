@@ -81,7 +81,6 @@
     <h2 class="sec-title">인기상품</h2><hr>
         <div id="card-divwrap" class="row">
         <c:forEach var="product" items="${list }">
-<!--         <br> -->
             <div class="col-4 productcard">
                 <div class="card">
                     <a href="${path }/product/detail?productNum=${product.productNum}">
@@ -94,7 +93,6 @@
                     </a>
                 </div>
             </div>
-<!--             <br> -->
         </c:forEach>
         </div>
     </section>

@@ -24,15 +24,9 @@ public class AdminMemberSearch extends HttpServlet {
 		String id = request.getParameter("id");
 		String phone = request.getParameter("phone");
 		
-		System.out.println(name);
-		System.out.println(id);
-		System.out.println(phone);
-		
 		Admin_member amember = new Admin_member();
 		
 		amember = new ProductService().findByAdmin_Member(name,id,phone);
-		
-		System.out.println(amember);
 		
 		if (amember != null && amember.getName()!=null) {
 			System.out.println("회원검색에 최종 성공");

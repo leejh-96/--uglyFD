@@ -103,19 +103,15 @@
 		                </tbody>
 		            </table>
 	            <div class="find-btn">
-	            <form action="${path }/admin/member/page" method="POST">
-	            	<a >
-	            		<input type="hidden" name="name" value="${amember.name }">
-	            		<input type="hidden" name="id" value="${amember.id }">
-	            		<input type="hidden" name="phone" value="${amember.phone }">
-	            		<input type="hidden" name="memberNo" value="${amember.no }">
-	            		<button type="submit" class="btn find-btn1" style="background-color: rgb(255, 244, 164);">회원정보수정</button>
-	            	</a>
-	            </form>
-<%-- 		            <form action="${path }/admin/member/update" method="POST"> --%>
-<%-- 		            	<input type="hidden" name="memberNo" value="${amember.no }"> --%>
-<!-- 	                    <button type="submit" class="btn find-btn1" name="memberUpdate">수정하기</button> -->
-<!-- 	                </form> -->
+		            <form action="${path }/admin/member/page" method="POST">
+		            	<a >
+		            		<input type="hidden" name="name" value="${amember.name }">
+		            		<input type="hidden" name="id" value="${amember.id }">
+		            		<input type="hidden" name="phone" value="${amember.phone }">
+		            		<input type="hidden" name="memberNo" value="${amember.no }">
+		            		<button type="submit" class="btn find-btn1" style="background-color: rgb(255, 244, 164);">회원정보수정</button>
+		            	</a>
+		            </form>
                 </div>
             </c:if>
             <!-- 회원관리-검색한 회원을 출력하는 table 끝-->
@@ -140,22 +136,6 @@
 	        return false;
 	    }
 	    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	</script>
 	
 </body>
